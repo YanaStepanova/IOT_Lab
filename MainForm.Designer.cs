@@ -40,7 +40,6 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tbVision = new System.Windows.Forms.TabPage();
             this.tbOption = new System.Windows.Forms.TabPage();
-            this.chkMotition = new System.Windows.Forms.CheckBox();
             this.btnStartStopCap = new System.Windows.Forms.Button();
             this.tmTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -153,7 +152,6 @@
             // 
             // tbOption
             // 
-            this.tbOption.Controls.Add(this.chkMotition);
             this.tbOption.Controls.Add(this.btnStartStopCap);
             this.tbOption.Controls.Add(this.devicesCombo);
             this.tbOption.Controls.Add(this.label1);
@@ -167,18 +165,6 @@
             this.tbOption.TabIndex = 1;
             this.tbOption.Text = "Настройки";
             this.tbOption.UseVisualStyleBackColor = true;
-            // 
-            // chkMotition
-            // 
-            this.chkMotition.AutoSize = true;
-            this.chkMotition.Location = new System.Drawing.Point(12, 51);
-            this.chkMotition.Margin = new System.Windows.Forms.Padding(4);
-            this.chkMotition.Name = "chkMotition";
-            this.chkMotition.Size = new System.Drawing.Size(185, 21);
-            this.chkMotition.TabIndex = 10;
-            this.chkMotition.Text = "Отслеживать движение";
-            this.chkMotition.UseVisualStyleBackColor = true;
-            this.chkMotition.CheckedChanged += new System.EventHandler(this.chkMotition_CheckedChanged);
             // 
             // btnStartStopCap
             // 
@@ -261,7 +247,6 @@
         private System.Windows.Forms.TabPage tbOption;
         private System.Windows.Forms.Button btnStartStopCap;
         private System.Windows.Forms.Timer tmTimer;
-        private System.Windows.Forms.CheckBox chkMotition;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip notifyContextMenu;
         private System.Windows.Forms.ToolStripMenuItem menuOpen;
