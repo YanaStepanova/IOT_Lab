@@ -46,6 +46,7 @@
             this.notifyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStartRec = new System.Windows.Forms.ToolStripMenuItem();
+            this.chkMotition = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tbVision.SuspendLayout();
@@ -152,6 +153,7 @@
             // 
             // tbOption
             // 
+            this.tbOption.Controls.Add(this.chkMotition);
             this.tbOption.Controls.Add(this.btnStartStopCap);
             this.tbOption.Controls.Add(this.devicesCombo);
             this.tbOption.Controls.Add(this.label1);
@@ -210,6 +212,17 @@
             this.menuStartRec.Size = new System.Drawing.Size(266, 24);
             this.menuStartRec.Text = "Начать/Остановить запись";
             // 
+            // chkMotition
+            // 
+            this.chkMotition.AutoSize = true;
+            this.chkMotition.Location = new System.Drawing.Point(39, 73);
+            this.chkMotition.Margin = new System.Windows.Forms.Padding(4);
+            this.chkMotition.Name = "chkMotition";
+            this.chkMotition.Size = new System.Drawing.Size(185, 21);
+            this.chkMotition.TabIndex = 11;
+            this.chkMotition.Text = "Отслеживать движение";
+            this.chkMotition.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -251,6 +264,7 @@
         private System.Windows.Forms.ContextMenuStrip notifyContextMenu;
         private System.Windows.Forms.ToolStripMenuItem menuOpen;
         private System.Windows.Forms.ToolStripMenuItem menuStartRec;
+        private System.Windows.Forms.CheckBox chkMotition;
     }
 }
 

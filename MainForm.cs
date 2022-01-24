@@ -54,6 +54,7 @@ namespace Snapshoter
         // Main form is loaded
         private void MainForm_Load(object sender, EventArgs e)
         {
+            chkMotition.Checked = IsMotion;
             string DefaultCamera = RegistryManager.DefaultCamera;
             bool AutoSetCamera = false;
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -110,7 +111,8 @@ namespace Snapshoter
                     videoDevice.SnapshotFrame += new NewFrameEventHandler(videoDevice_SnapshotFrame);
                 }
                 patternFileName = ParsePattern("%Y %M %D %H %m %S-%C");
-                ActualSnapshotWidth = videoDevice.DesiredFrameSize.Width;
+                if (chkMotition.Checked)// cmbSensitiv_SelectedIndexChanged(null, null);
+                    ActualSnapshotWidth = videoDevice.DesiredFrameSize.Width;
                 ActualSnapshotHeight = videoDevice.DesiredFrameSize.Height;
 
                 EnableConnectionControls(false);
@@ -144,7 +146,7 @@ namespace Snapshoter
 
                 EnableConnectionControls(true);
             }
-
+            RegistryManager.IsMotition = chkMotition.Checked;
             RegistryManager.DefaultCamera = devicesCombo.SelectedItem.ToString();
         }
 
@@ -202,6 +204,9 @@ namespace Snapshoter
             else
             {
                 float MotionLvl = 0f;
+                if (detector == null && chkMotition.Checked) return;
+                if (chkMotition.Checked) MotionLvl = detector.ProcessFrame((Bitmap)snapshot.Clone());
+
                 string fileName = GetNameFile();
                 fileName += "." + format.ToString();
 
@@ -260,5 +265,11 @@ namespace Snapshoter
             if (IsMotion) IsRecDraw = false;
             ShowSnapshot(videoSourcePlayer.GetCurrentVideoFrame());
         }
+
+        private void chkMotition_CheckedChanged(object sender, EventArgs e)
+        {
+            IsMotion = chkMotition.Checked;
+        }
+
     }
 }
